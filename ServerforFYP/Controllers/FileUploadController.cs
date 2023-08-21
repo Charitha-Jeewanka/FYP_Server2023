@@ -14,7 +14,7 @@ namespace ServerforFYP.Controllers
         }
 
         [HttpPost(Name = "csvUpload")]
-        public async Task<IActionResult> UploadCsvFile(IFormFile file)
+        public async Task<IActionResult> UploadCsvFile(IFormFile file, [FromForm] string selectedDataType)
         {
             if (file == null || file.Length == 0)
             {
@@ -23,12 +23,28 @@ namespace ServerforFYP.Controllers
 
             using (var stream = file.OpenReadStream())
             {
-                var objectName = "biodata/" + file.FileName;
+                string folderName;
+                if (selectedDataType == "eeg")
+                {
+                    folderName = "eeg_data/";
+                }
+                else if (selectedDataType == "other")
+                {
+                    folderName = "other_data/";
+                }
+                else
+                {
+                    folderName = "";
+                }
+
+                var objectName = folderName + file.FileName;
                 var bucketName = "uploads_for_fyp";
                 await _storageClient.UploadObjectAsync(bucketName, objectName, null, stream);
             }
 
-            return Ok("File uploaded successfully.");
+            return Ok(new { success = true, message = "File uploaded successfully." });
+
+
         }
     }
 }
