@@ -707,3 +707,5 @@ D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\lib\xmlrpc\__init__.py
 D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\lib\xmlrpc\client.py
 D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\lib\xmlrpc\server.py
 D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\lib\zipfile.py
+D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\Assets\fypbackend1-d97d2809d29a.json
+D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\Controllers\fypbackend1-d97d2809d29a.json

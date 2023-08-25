@@ -1,11 +1,10 @@
-﻿using System.IO;
-using System.Collections.Generic;
+﻿using Google.Cloud.Storage.V1;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Scripting.Hosting;
-using Microsoft.Extensions.Logging;
-using IronPython.Hosting;
-using IronPython.Runtime;
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace ServerforFYP.Controllers
 {
@@ -13,51 +12,63 @@ namespace ServerforFYP.Controllers
     [ApiController]
     public class PredictionsController : ControllerBase
     {
-        private readonly ILogger<PredictionsController> _logger;
+        private readonly StorageClient _storageClient;
 
-        public PredictionsController(ILogger<PredictionsController> logger) 
-        { 
-            _logger = logger;
+        public PredictionsController(StorageClient storageClient)
+        {
+            _storageClient = storageClient;
         }
 
         [HttpPost]
-        public IActionResult PredictStress()
+        [DisableRequestSizeLimit]
+        public async Task<IActionResult> PredictStress(IFormFile file, [FromForm] string selectedDataType)
         {
-            IFormFile file = Request.Form.Files[0]; // Get the uploaded file
-
-            using (var memoryStream = new MemoryStream())
+            if (file == null || file.Length == 0)
             {
-                file.CopyTo(memoryStream); // Copy the file content to memory stream
+                return BadRequest("No file uploaded.");
+            }
 
-                // Convert the memory stream content to a byte array
-                byte[] csvBytes = memoryStream.ToArray();
+            try
+            {
+                // Upload the file to Google Cloud Storage
+                string bucketName = "uploads_for_fyp";
+                string objectName = Guid.NewGuid().ToString();
 
-                // Save the byte array as a temporary CSV file
-                string tempFilePath = Path.GetTempFileName();
-                System.IO.File.WriteAllBytes(tempFilePath, csvBytes);
+                using (var stream = file.OpenReadStream())
+                {
+                    await _storageClient.UploadObjectAsync(bucketName, objectName, null, stream);
+                }
 
-                // Call the Python function with the file path
-                var engine = Python.CreateEngine();
-                var scope = engine.CreateScope();
+                // Call the Python script using a subprocess
+                string pythonScriptPath = @"D:\FYP\Server\ServerforFYP\ServerforFYP\Assets\predict_stress.py";
 
-                // Load the Python script
-                var scriptPath = "D:\\FYP\\Codes\\EEG_ML\\PSD_windowing\\predict_stress.py";
-                var scriptCode = System.IO.File.ReadAllText(scriptPath);
-                engine.Execute(scriptCode, scope);
+                string bucketPath = $"gs://{bucketName}/{objectName}";
+                string arguments = $"\"{pythonScriptPath}\" \"{bucketPath}\"";
 
-                // Get the predict_stress function from the Python scope
-                var predictStressFunction = scope.GetVariable<Func<string, double[]>>("predict_stress");
+                ProcessStartInfo processInfo = new ProcessStartInfo("python");
 
-                // Call the predict_stress function with the file path
-                var predictedStressedPercentage = predictStressFunction(tempFilePath);
+                processInfo.UseShellExecute = false;
+                processInfo.RedirectStandardOutput = true;
+                processInfo.Arguments = arguments;
 
-                // Delete the temporary file
-                System.IO.File.Delete(tempFilePath);
+                using (var process = Process.Start(processInfo))
+                {
+                    StreamReader streamReader = process.StandardOutput;
+                    string output = streamReader.ReadLine();
+                    process.WaitForExit();
 
-                return Ok(new { PredictedStressedPercentage = predictedStressedPercentage });
+                    // Delete the file from Google Cloud Storage
+                    await _storageClient.DeleteObjectAsync(bucketName, objectName);
+
+                    // Return the output as JSON response
+                    return Ok(output);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, $"An error occurred: {ex.Message}");
             }
         }
-
     }
 }
-

@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "fypbackend1",
+  "private_key_id": "d97d2809d29abab36976996ccec935db853a5fae",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCuDFgCu10OVeq/\nQmXohQeH+/NOqfbaSjJP+ojJyXH8WbgLg039TS7XPy05h8t5MHcXcoeKs0m2qCkZ\nwr16RPH1vILKJlRqm6MHnFniaxAzGjXyzCQoC2SVe2UwOBTOURYeUTbQZ1ZSJ4iE\nSJZiAuKtobAEz9SLB52+2MD95JwtD9M2y9oMXu5wz1/9NOM+ivKFQckj3MXWLGzZ\nHL/t/+ny5QjdxEev+SOLsCgEJdFc29cDe9rDszCFIEO5Tn9uW+queRZR8LBdjbFb\n013JAatDNYa7cu11erPygs1ja7FhOU75UASXpA9hIIMOVqIVg7gIl1md+xIR2BQ5\nGpoW0BWJAgMBAAECggEAAxAjzOGCAt5zeAv5uei8cBHYr3fZiLAxWDu9JEr7qvCj\nxu0XxmdRNZfOqpJnm/GEyQh6lu/ukky9k27cUY5s0TGw/hCEYA9u5DOF1/ChK3sQ\nu74IvV0s9x4BswJrqFFgQaaVf7+v0tiQBB74aY9qMJrVu5HySEOZLLqJE/bN4lOb\nXtDUxvwe7R/wxscjbqRB49QZ0Qq2TWS+DcJUP6jCrSqTRkd/buzsUAvG+Ud2iRDP\nl/Q2f0PDE62mpra9j8IlFs2RiGiXRH2t7aXqN8J+mKGC5IGNcu7eVk8QDwDz8YM/\nvG556PdU1hD3HfDrWbiYkUBUvh4+aFm0Hu86pA92wQKBgQDr60DeKAKl5f9wPc4C\nRYn7aSBunvgvEdMPcUszpS8cNP5LVg+Re/RFDqQ4oaN2H+pJH/shRQw7D25Draxg\npEvOaDSUUQjJeIBKng7MQbM5VrOXfk6oh22jQfIivNZ8LmuKPFT85XZkIe+QJ6YZ\nHysc5L3Vg5/qKk1zr3s7oMQxSQKBgQC83OhvYN+XQTw31dakpivvS2jDjnVeD6p5\nZkp1HsfLnyjsrD2cuQ8N0+Ur4iYQNcq0QZmmcGrJv1Wl9fYDtfUtLruf1YqOu1YO\nBj5z6fmM8nLkRp1ieyxUNWapsVFF2la+gtYNyO5Q9e8R8MC6ieBaI/SYnhc7MZ9x\nJZSyxLUCQQKBgEWc0zU6RR3Csg7ijckpz785k/JQQhdRgR/LZE9G7JG8KVT9ffaF\nxtwhp992Ao+2dyFAqI92mldLBFRACN8zW5L6OJmTF66rOd/Kp78pm8LNjIylHnyo\nCXfk25fYdMmLwPu3NbSx2K9PPCsjJ+W9xrDt5f38qtEjzlrWatx7YajRAoGBALHX\nEshOYDz9oMazBbtk/loGmFANBVfdSJmoSNSgd2K2LMMwLZQ2boaG0XXRLiZ1gLrc\nSuL/WI9BLFVqlo5H+Obi6qpHWoGsxgvOtWBRIjwm0SlDlU/2zHc/Eb0Yy38LakNa\n0FWKr15tNwGdwt3klu5KjThpJVcIEytoR+1ObWQBAoGAdKZceo3Cz54AhxyEfr5J\nxP/Pjs6pp/dt0WbBmgWhflbd1JD972u9tIZBuIozCjJKujt84q9THUxcMywtheF3\n9tfp2POMUNabimWRDlsObi5zNLOgzR4jiUWxu45sYNb3HIKRgKdTQQ66ipdjeOJ1\nSIkwyPHq+c8h+nY4YE6ijkc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "fypbackendserviceacc@fypbackend1.iam.gserviceaccount.com",
+  "client_id": "101327099416172551841",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/fypbackendserviceacc%40fypbackend1.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
