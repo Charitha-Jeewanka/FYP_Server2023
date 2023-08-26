@@ -1,6 +1,8 @@
 ﻿using Google.Cloud.Storage.V1;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -39,7 +41,7 @@ namespace ServerforFYP.Controllers
                     await _storageClient.UploadObjectAsync(bucketName, objectName, null, stream);
                 }
 
-                // Call the Python script using a subprocess
+                // Subprocess
                 string pythonScriptPath = @"D:\FYP\Server\ServerforFYP\ServerforFYP\Assets\predict_stress.py";
 
                 string bucketPath = $"gs://{bucketName}/{objectName}";
@@ -57,10 +59,8 @@ namespace ServerforFYP.Controllers
                     string output = streamReader.ReadLine();
                     process.WaitForExit();
 
-                    // Delete the file from Google Cloud Storage
                     await _storageClient.DeleteObjectAsync(bucketName, objectName);
 
-                    // Return the output as JSON response
                     return Ok(output);
                 }
             }

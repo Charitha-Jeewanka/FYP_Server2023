@@ -707,5 +707,14 @@ D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\lib\xmlrpc\__init__.py
 D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\lib\xmlrpc\client.py
 D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\lib\xmlrpc\server.py
 D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\lib\zipfile.py
-D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\Assets\fypbackend1-d97d2809d29a.json
-D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\Controllers\fypbackend1-d97d2809d29a.json
+D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Common.dll
+D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\Microsoft.Extensions.Features.dll
+D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\System.IO.Pipelines.dll
+D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\System.Text.Json.dll
+D:\FYP\Server\ServerforFYP\ServerforFYP\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
